@@ -13,8 +13,7 @@
 
 ## TODOs
 
-1. Serve monaco service worker files statically
-2. Move logic to service workers to free main thread
+1. Move logic to service workers to free main thread
 
 ## Code processing options
 

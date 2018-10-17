@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@babel/traverse": "^7.1.0",
     "@zeit/next-css": "^1.0.1",
     "comlinkjs": "^3.0.3",
+    "express": "^4.16.4",
     "monaco-editor": "^0.14.3",
     "next": "^7.0.1",
     "react": "^16.5.2",
