@@ -1,29 +1,27 @@
-import * as parser from '@babel/parser';
-import traverse from '@babel/traverse';
-import {expose} from 'comlinkjs';
+import { expose } from 'comlinkjs';
 
-class EvalWorker {
-  // TODO: figure out
-  evalCode(code) {
-    const result = eval(code);
-    return result;
-  }
-
-  findVariableDeclaration({code, variableName}) {
-    try {
-      const ast = parser.parse(code);
-      let nodeValue = '';
-      traverse(ast, {
-        enter(path) {
-          if (path.node.type === 'VariableDeclarator' && path.node.id.name === variableName) {
-            nodeValue = path.node.init.value;
-          }
-        },
-      });
-      return nodeValue;
-    } catch (e) {
-      return 'Error';
+const contextRecorder = target => {
+  return new Proxy(target, {
+    has(target, prop) {
+      return true;
+    },
+    get(target, prop) {
+      return (prop in target ? target : self)[prop];
     }
+  });
+};
+class EvalWorker {
+  evalCode(code) {
+    let context = {};
+    const result = new Function(
+      'recorder',
+      `with(recorder){
+        ${code}
+      }
+    `
+    )(contextRecorder(context));
+
+    return { result, context };
   }
 }
 
