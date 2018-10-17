@@ -36,7 +36,7 @@ export default class HomePage extends React.Component {
         </div>
         <div className="grid-item">
           {task.tests.map((test, i) => (
-            <div>
+            <div key={`test_${i}`}>
               Test {i}: {test({code: this.state.userCode}) ? 'Passing' : 'Failing'}
             </div>
           ))}
