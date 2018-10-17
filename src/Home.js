@@ -1,3 +1,4 @@
+import React from 'react';
 import Editor from '../components/editor';
 import task from '../missions/mission1';
 
@@ -15,7 +16,7 @@ export default class HomePage extends React.Component {
 
     return (
       <div className="grid-container">
-        <style jsx>{`
+        <style>{`
           .grid-container {
             display: grid;
             grid-template-columns: auto auto;

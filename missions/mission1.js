@@ -1,5 +1,6 @@
 import * as parser from '@babel/parser';
 import traverse from '@babel/traverse';
+import React from 'react';
 
 const parseCodeForValue = code => {
   try {
