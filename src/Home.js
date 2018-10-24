@@ -1,7 +1,7 @@
 import {proxy} from 'comlinkjs';
 import React from 'react';
 import Editor from './components/editor';
-import task from './missions/mission1';
+import task from './missions/mission2';
 
 const EvalWorker = proxy(new Worker('./workers/eval.worker.js'));
 
@@ -41,7 +41,7 @@ export default class HomePage extends React.Component {
         <style>{`
           .grid-container {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: fit-content(40%) auto;
           }
 
           .grid-item {

@@ -18,6 +18,12 @@ class EvalWorker {
     return {result, context};
   }
 
+  invokeCode({code, fn, params}) {
+    eval(code);
+    const result = self[fn](...params);
+    return result;
+  }
+
   findVariableDeclaration({code, variableName}) {
     try {
       const ast = parser.parse(code);

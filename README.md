@@ -5,7 +5,7 @@
 - [x] Var mission:
       User is given a variable that he has to change
 
-- [ ] Conditional mission:
+- [x] Conditional mission:
       There will be a global value that user has to react to
 
 - [ ] Function mission:
