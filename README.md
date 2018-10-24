@@ -12,5 +12,3 @@
       User has to write a function that does something
 
 ## TODOs
-
-1. Figure out how to do eval in web worker and extract new global variables

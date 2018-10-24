@@ -1,5 +1,7 @@
 import React from 'react';
 
+const applyCodemod = code => code.replace(/var\s/g, 'self.');
+
 class Preview extends React.Component {
   state = {value: 'init...', code: ''};
 
@@ -12,8 +14,9 @@ class Preview extends React.Component {
   }
 
   async executeCode({code, evalWorker}) {
-    const value = await evalWorker.findVariableDeclaration({code, variableName: 'changeMe'});
-    this.setState({value});
+    const modifiedCode = applyCodemod(code);
+    const {result, context} = await evalWorker.evalCode(modifiedCode);
+    this.setState({value: context.changeMe});
   }
 
   render() {

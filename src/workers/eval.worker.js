@@ -3,10 +3,19 @@ import traverse from '@babel/traverse';
 import {expose} from 'comlinkjs';
 
 class EvalWorker {
-  // TODO: figure out
+  constructor() {
+    this.existingKeys = Object.keys(self);
+  }
+
   evalCode(code) {
     const result = eval(code);
-    return result;
+    const newKeys = Object.keys(self).filter(key => !this.existingKeys.includes(key));
+    const context = newKeys
+      .map(key => ({
+        [key]: self[key],
+      }))
+      .reduce((prev, curr) => ({...prev, ...curr}), {});
+    return {result, context};
   }
 
   findVariableDeclaration({code, variableName}) {
