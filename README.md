@@ -12,3 +12,6 @@
       User has to write a function that does something
 
 ## TODOs
+
+1. Add mission selection
+2. Do small mission code refactor and split code into multiple files
