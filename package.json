@@ -16,7 +16,6 @@
     "@babel/traverse": "^7.1.0",
     "comlinkjs": "^3.0.3",
     "monaco-editor": "^0.14.3",
-    "next": "^7.0.1",
     "parcel": "^1.10.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
